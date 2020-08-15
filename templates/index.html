@@ -7,20 +7,21 @@
 {% block body %}
 <div class="content">
     <h1 style="text-align: center">HEYO</h1>
-    <!-- {% if tasks|length < 1 %}
+    {% if tasks|length < 1 %}
     <h4 style="text-align: center">There are no tasks. Create one below!</h4>
-    {% else %} -->
+    {% else %}
     <ul>
+        {{ tasks }}
         {% for task in tasks %}
             <li>
-                <h4>{% task.name %}</h4>
+                <h4>{{ task.name }}</h4>
                 <p>
-                    {% task.detail %}
+                    {{ task.detail }}
                 </p>
             </li>
         {% endfor %}
     </ul>
-    <!-- {% endif %} -->
+    {% endif %}
 
 
 </div>
