@@ -3,9 +3,12 @@ from flask import Flask, render_template, url_for, request, redirect
 import os, shutil # For file saving and deleting
 from werkzeug.utils import secure_filename
 
+import cv2
+
 from google_cloud import upload_blob, download_blob
 
 from backend.video_converter import convertVideo
+import backend.background_remover as bgr
 
 from time import sleep
 
@@ -103,8 +106,14 @@ def upload():
                 print ("File was not downloaded successfully!")
                 return redirect(request.url)
 
-            convertVideo(download_location, 50)
-            return render_template('demo.html', video_loc=download_location)
+            # Not using the removedBackground for now
+            # removedBackround = bgr.BackgroundRemover(cv2.VideoCapture(download_location)).process()
+            removedBackround = download_location
+            converted_vid = convertVideo(removedBackround, 50)
+            final_loc = converted_vid
+            # final_loc = os.path.join(app.config["FILE_TEMP_SAVE"], converted_vid)
+            # shutil.move(converted_vid, final_loc)
+            return render_template('demo.html', video_loc=final_loc)
 
     # Else, GET request
     return render_template('demo.html')

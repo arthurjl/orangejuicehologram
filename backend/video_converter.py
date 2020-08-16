@@ -1,3 +1,4 @@
+import cv2
 from moviepy.editor import CompositeVideoClip, VideoFileClip, clips_array, vfx
 
 # Converts video into three-dimensional projection format
@@ -26,4 +27,9 @@ def convertVideo(filepath, percentage):
                                     clip2.set_position(clip2_pos),
                                     clip3.set_position(clip3_pos),
                                     clip4.set_position(clip4_pos)], size=(width, width))
-    final_clip.write_videofile(filepath)
+    print(filepath)
+    corrected_filepath = filepath[:filepath.find(".")] + ".mp4"
+    print(corrected_filepath)
+    # final_clip.write_videofile(corrected_filepath, codec='mpeg4')
+    # final_clip.write_videofile(corrected_filepath)
+    # return corrected_filepath

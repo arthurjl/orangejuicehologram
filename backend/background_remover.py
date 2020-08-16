@@ -38,7 +38,7 @@ class BackgroundRemover:
             print(f"\t output dim: {output_dim}")
         out = cv2.VideoWriter(output_name, fourcc, fps, output_dim)
 
-        iter = 1
+        iter = 60
         i = 0
         while self.cap.isOpened():
             ret, frame = self.cap.read()
@@ -47,7 +47,7 @@ class BackgroundRemover:
                 i += 1
                 if i % iter == 0:
                     image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-                    out.write(cv2.cvtColor(self._segment(image, device=device, show_imgs=verbose), cv2.COLOR_RGB2BGR))
+                    out.write(cv2.cvtColor(self._segment(image, dev=device, show_imgs=verbose), cv2.COLOR_RGB2BGR))
             else:
                 break
 
