@@ -24,7 +24,7 @@ def index():
 app.config["FILE_UPLOADS"] = "uploads/"
 app.config["FILE_TEMP_SAVE"] = "static/temp/"
 # Change later
-app.config["ALLOWED_FILE_UPLOAD_EXTENSIONS"] = ["PNG", "JPG", "PDF", "JPEG", "MP4"]
+app.config["ALLOWED_FILE_UPLOAD_EXTENSIONS"] = ["MP4"]
 app.config["MAX_FILESIZE"] = 5 * 1024 * 1024
 
 def is_filename_safe(filename):

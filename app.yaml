@@ -1,2 +1,5 @@
 runtime: python38
-entrypoint: gunicorn -b :$PORT app:app
+entrypoint: gunicorn -t 120 -b :8080 -w 1 app:app
+instance_class: F4_1G
+automatic_scaling:
+  max_instances: 5
