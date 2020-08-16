@@ -26,8 +26,8 @@ class BackgroundRemover:
             height = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
             fps = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
-        output_name = f"{output_name}.avi"
-        fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
+        output_name = f"{output_name}.mp4"
+        fourcc = cv2.VideoWriter_fourcc(*'X264')
         output_dim = self._calculate_output_dim(width, height)
 
         if verbose:
@@ -47,7 +47,7 @@ class BackgroundRemover:
                 i += 1
                 if i % iter == 0:
                     image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-                    out.write(cv2.cvtColor(self._segment(image, device=device, show_imgs=verbose), cv2.COLOR_RGB2BGR))
+                    out.write(cv2.cvtColor(self._segment(image, dev=device, show_imgs=verbose), cv2.COLOR_RGB2BGR))
             else:
                 break
 
