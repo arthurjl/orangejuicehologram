@@ -52,16 +52,16 @@ def about():
 def upload():
     if request.method == "POST":
         # TODO: delete files in temp first
-        for file_to_delete in os.listdir(app.config["FILE_TEMP_SAVE"]):
-            file_path_to_delete = os.path.join(app.config["FILE_TEMP_SAVE"], file_to_delete)
-            print(f'trying to yeet {file_path_to_delete}')
-            try:
-                if os.path.isfile(file_path_to_delete) or os.path.islink(file_path_to_delete):
-                    os.unlink(file_path_to_delete)
-                elif os.path.isdir(file_path_to_delete):
-                    shutil.rmtree(file_path_to_delete)
-            except Exception as e:
-                print('Failed to delete %s. Reason: %s' % (file_path_to_delete, e))
+        # for file_to_delete in os.listdir(app.config["FILE_TEMP_SAVE"]):
+        #     file_path_to_delete = os.path.join(app.config["FILE_TEMP_SAVE"], file_to_delete)
+        #     print(f'trying to yeet {file_path_to_delete}')
+        #     try:
+        #         if os.path.isfile(file_path_to_delete) or os.path.islink(file_path_to_delete):
+        #             os.unlink(file_path_to_delete)
+        #         elif os.path.isdir(file_path_to_delete):
+        #             shutil.rmtree(file_path_to_delete)
+        #     except Exception as e:
+        #         print('Failed to delete %s. Reason: %s' % (file_path_to_delete, e))
 
         if request.files:
             video = request.files["video"]  # Matches 'name' attribute

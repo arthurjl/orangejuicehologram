@@ -20,14 +20,24 @@
 
             <form class = "form" action="/demo" method="POST" enctype="multipart/form-data">
                 <!--<label>Select Video</label>-->
-                <div class="custom-file">
-                  <input class = "learnMoreButton" oninput="filesize(this)" type="file" name="video" id="video">
-                  <!--<label for="video">Select video...</label>-->
+                <div class="demo-submission-buttons-container">
+                    <div class="custom-file">
+                    <input class = "learnMoreButton" oninput="filesize(this)" type="file" name="video" id="video">
+                    <!--<label for="video">Select video...</label>-->
+                    </div>
+                    <div class = "learnMoreButton2">
+                        <button type="submit" onclick="loading()">Upload image</button>
+                    </div>
                 </div>
-                <div class = "learnMoreButton2">
-                    <button type="submit">Upload image</button>
+                <div id="loading">
+                    <div>Big ugly loading bar sorry :C, Esther went to bed</div>
+                    <img src="/static/images/loading.gif" alt="Loading">
                 </div>
             </form>
+            {% if video_loc is defined %}
+            <div>Scroll down to see video!</div>
+            <div id="arrow" class="arrow"></div>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -39,4 +49,13 @@
     </video>
 </div>
 {% endif %}
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    function loading () {
+        console.log('show loading bar')
+        document.getElementById("loading").style.display = "block";
+    }
+</script>
 {% endblock %}
