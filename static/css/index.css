@@ -1,0 +1,24 @@
+.learnMoreButton button {
+  color: white;
+  text-transform: uppercase;
+  background-color: #eb4507 !important;
+  border: 3px solid #eb4507; /* #eb4507 */
+  z-index: 2;
+  padding: 15px 15px;
+  margin: 35px;
+    -webkit-transition-duration: 0.3s; 
+  transition-duration: 0.3s;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+}
+
+.learnMoreButton button:hover {
+   color: white;
+}
+
+.learnMoreButton button:hover {
+  border-color: white;
+    background-color: rgba(0,0,0,0) !important;
+ }
