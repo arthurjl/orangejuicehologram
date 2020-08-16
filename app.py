@@ -69,7 +69,11 @@ def upload():
     if request.method == "POST":
         if request.files:
             video = request.files["video"]  # Matches 'name' attribute
-            if not is_filesize_allowed(request.cookies.get('filesize')):
+
+            video.seek(0, os.SEEK_END)
+            size = video.tell()
+            video.seek(0, 0)
+            if int(size) > app.config["MAX_FILESIZE"]:
                 print(f"filesize exceeds limit of {app.config['MAX_FILESIZE']}")
                 return redirect(request.url)
             elif not is_filename_safe(video.filename):
