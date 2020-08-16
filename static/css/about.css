@@ -1,8 +1,8 @@
 video {
     width: 60%;
     background-color: rgba(225,225,225,0);
-    /*padding: 10px;
-    border: 2px solid #eb4507;*/
+    padding: 15px;
+    border: 2px solid white;
 }
 
 .hologram {
@@ -76,4 +76,15 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.aboutSection {
+    background-image: url("/static/images/hologram.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.vidHolder {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(28, 28, 28,0.3), rgba(18, 43, 77,0.3));
 }

@@ -15,4 +15,59 @@
     color: #eb4507;
 }
 
+.learnMoreButton {
+    color: #dbb52f;
+    text-transform: uppercase;
+    background-color: rgba(255,255,255,0);
+    border: 3px solid white; /* #eb4507 */
+    z-index: 2;
+    padding: 15px 15px;
+    margin: 35px;
+    color: white;
+    -webkit-transition-duration: 0.3s; 
+    transition-duration: 0.3s;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+}
+
+.learnMoreButton:hover {
+   color: #eb4507;
+}
+
+.learnMoreButton:hover {
+  border-color: #eb4507;
+ }
+
+.learnMoreButton2 button {
+    color: #dbb52f;
+    font-family: "Orbitron", sans-serif;
+    text-transform: uppercase;
+    background-color: rgba(255,255,255,0);
+    border: 3px solid white; /* #eb4507 */
+    z-index: 2;
+    padding: 15px 15px;
+    margin: 35px;
+    color: white;
+    -webkit-transition-duration: 0.3s; 
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.learnMoreButton2 button:hover {
+   color: #eb4507;
+}
+
+.learnMoreButton2 button:hover {
+  border-color: #eb4507;
+ }
+
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
 
