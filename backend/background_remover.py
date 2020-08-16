@@ -26,8 +26,8 @@ class BackgroundRemover:
             height = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
             fps = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
-        output_name = f"{output_name}.avi"
-        fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
+        output_name = f"{output_name}.mp4"
+        fourcc = cv2.VideoWriter_fourcc(*'X264')
         output_dim = self._calculate_output_dim(width, height)
 
         if verbose:

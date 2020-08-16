@@ -16,11 +16,17 @@ def convertVideo(filepath, percentage):
     clip3 = clip1.rotate(180)
     clip4 = clip1.rotate(270)
 
+    # Retrieve clip of white border for placement of cone
+    clip5 = ColorClip(size=(400, 400), color=(255, 255, 255))
+    clip6 = ColorClip(size=(390, 390), color=(0, 0, 0))
+
     # Calculate clip positions
     clip1_pos = ((width / 2) - (clip_width / 2), 0)
     clip2_pos = (0, (width / 2) - (clip_width / 2))
     clip3_pos = ((width / 2) - (clip_width / 2), width - clip_height)
     clip4_pos = (width - clip_height, (width / 2) - (clip_width / 2))
+    clip5_pos = ((width / 2) - 200, (width / 2) - 200)
+    clip6_pos = ((width / 2) - 195, (width / 2) - 195)
 
     # Produce composition of clips
     final_clip = CompositeVideoClip([clip1.set_position(clip1_pos),
