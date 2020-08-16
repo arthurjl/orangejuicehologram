@@ -26,6 +26,4 @@ def convertVideo(filepath, percentage):
                                     clip2.set_position(clip2_pos), 
                                     clip3.set_position(clip3_pos), 
                                     clip4.set_position(clip4_pos)], size=(width, width))
-    final_clip.write_videofile(filepath.replace(".mp4", "_converted.mp4"))
-
-convertVideo("lebron_test.mp4", 55)
+    final_clip.write_videofile(filepath.replace(".", "_converted."))
