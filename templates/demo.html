@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/demo.css') }}">
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class = "landingGradient">
+    <div class = "landing">
+        <div class = "titleHolder">
+            <div class = "textHolder">
+                <h1>Demo</h1>
+                <h1 class = "hologram">Try It Out</h1>
+            </div>
+            <div class = "learnMoreContainer">
+               <a href = "#" class="learnMoreButton"><button>Upload Video</button></a>
+               <a href = "#" class="learnMoreButton"><button>Download Video</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

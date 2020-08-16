@@ -48,7 +48,7 @@ td {
     /*background-image: linear-gradient(rgba(67, 90, 165, 0.4), rgba(165, 67, 95, 0.4));*/
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(227, 157, 77, 0.4));*/
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(178, 194, 209, 0.4));*/
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(144, 155, 166, 0.4));
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(19, 58, 97, 0.4)); /* 142, 130, 171 */
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -70,7 +70,7 @@ header {
 	text-transform: uppercase;
     letter-spacing: 2px;
 	z-index: 100;
-    position: fixed;
+    position: absolute;
     color: white;
 }
 
@@ -150,7 +150,7 @@ a:link {
   color: #dbb52f;
   text-transform: uppercase;
   background-color: rgba(255,255,255,0);
-  border: 2px solid white; /* #eb4507 */
+  border: 3px solid white; /* #eb4507 */
   z-index: 2;
   padding: 15px 15px;
   margin: 35px;

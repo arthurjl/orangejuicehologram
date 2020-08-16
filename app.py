@@ -56,6 +56,15 @@ def is_filename_safe(filename):
 def is_filesize_allowed(filesize):
     return int(filesize) < app.config["MAX_FILESIZE"]
 
+@app.route('/about', methods=['POST', 'GET'])
+def about():
+    return render_template('about.html')
+
+@app.route('/demo', methods=['POST', 'GET'])
+def demo():
+    return render_template('demo.html')
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
