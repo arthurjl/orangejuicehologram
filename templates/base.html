@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
+<header id = "secondBox" class = "navbar">
+	<nav class = "secondBox">
+    <div class = "logoBox">
+		<a class = "homepageLogo" href = "/">Orange Juice Hologram</a>
+	</div>
+		<ul class = "headerList">
+			<li><a href = "/about/" > About </a></li>
+			<li><a href = "/archive/"> Demo </a></li>
+		</ul>
+	</nav>
+</header>
 <body>
     {% block body %}{% endblock %}
 </body>
