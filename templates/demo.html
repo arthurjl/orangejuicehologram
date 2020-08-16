@@ -41,16 +41,11 @@
         </div>
     </div>
 </div>
-<div class="demoHolder">
-    <video class="demoVideo" muted controls>
-        <source src = "https://orangejuicehologram.appspot.com.storage.googleapis.com/uploads/video-1597551723.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=fileuploader%40orangejuicehologram.iam.gserviceaccount.com%2F20200816%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20200816T094402Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&x-goog-signature=1fca35c7e36765201705bbc53f50d7cb3bdb07a8fa490e2026ea843a52f872a92cd4b3fb1b849c5125ccf7f2879f3cd8ea3826964ee073692aad9023f4121f6cf85999df47e0196f23a979e618c2f60a242885e4dc4300fd67cf640956bf134a991a2a3529bcc1961f56dc3d96a7b76ac3a74428f8086dd040deab0b0147608da818443901281706701f7d1e0408ea334b308552b148a80803c1c3adea2efeb1e62f5046c938b3e3a8dfc30877a34716db4a2b16c26ca52a3173293e384c0dc7d1ff52cd2cb0b9bf7c17bfc066a77ed9d6c62d36409428b8e45fb146f7d60eb1958bfe1ca295103a8081566231d30f102307804b6f7888413e7d966f4a68c713" type = "video/mp4">
-    </video>
-</div>
 {% if video_loc is defined %}
 {{ video_loc }}
 <div class="demoHolder">
     <video class="demoVideo" muted controls>
-        <source src = "/{{ video_loc }}" type = "video/mp4">
+        <source src = "{{ video_loc }}" type = "video/mp4">
     </video>
 </div>
 {% endif %}

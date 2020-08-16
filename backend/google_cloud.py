@@ -4,7 +4,7 @@ import datetime
 import hashlib
 import sys
 
-from backend.video_converter import convertVideo
+from . import video_converter as vc
 
 # pip install google-auth
 from google.oauth2 import service_account
@@ -117,6 +117,24 @@ def upload_blob(source_file, destination_blob_name, bucket_name='orangejuiceholo
     )
   )
 
+def upload_blob_name(source_file, destination_blob_name, bucket_name='orangejuicehologram.appspot.com'):
+  """Uploads a file to the bucket."""
+  # bucket_name = "your-bucket-name"
+  # source_file_name = "local/path/to/file"
+  # destination_blob_name = "storage-object-name"
+
+  storage_client = storage.Client()
+  bucket = storage_client.bucket(bucket_name)
+  blob = bucket.blob(destination_blob_name)
+
+  blob.upload_from_filename(source_file)
+
+  print(
+    "File {} uploaded to {}.".format(
+      source_file, destination_blob_name
+    )
+  )
+
 def download_blob(gcloud_file, local, bucket_name='orangejuicehologram.appspot.com'):
   storage_client = storage.Client()
   bucket = storage_client.bucket(bucket_name)
@@ -134,4 +152,5 @@ if __name__ == "__main__":
   # upload_blob(open('random.txt'), 'uploads/random.txt')
   x = generate_signed_url('uploads/video-1597551723.mp4')
   print(x)
-  # convertVideo(x, 500)
+  y = vc.convertVideo(x, 500)
+  print(y)

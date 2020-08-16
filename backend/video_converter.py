@@ -1,5 +1,7 @@
-import cv2
-from moviepy.editor import CompositeVideoClip, VideoFileClip, clips_array, vfx
+from moviepy.editor import CompositeVideoClip, VideoFileClip, clips_array, vfx, ColorClip
+from . import google_cloud as gc
+import datetime
+import os
 
 # Converts video into three-dimensional projection format
 def convertVideo(filepath, percentage):
@@ -33,9 +35,18 @@ def convertVideo(filepath, percentage):
                                     clip2.set_position(clip2_pos),
                                     clip3.set_position(clip3_pos),
                                     clip4.set_position(clip4_pos)], size=(width, width))
-    print(filepath)
-    corrected_filepath = filepath[:filepath.find(".")] + ".mp4"
-    print(corrected_filepath)
     # final_clip.write_videofile(corrected_filepath, codec='mpeg4')
     # final_clip.write_videofile(corrected_filepath)
     # return corrected_filepath
+
+    output_loc = f'output.mp4'
+    # output_loc_url = gc.generate_signed_url(output_loc, http_method='GET')
+    # print(output_loc_url)
+    # gc.upload_blob(open('yeet.txt'), output_loc)
+    # f = open(output_loc_url, "w")
+    # f.write("Woops! I have deleted the content!")
+    # f.close()
+    # output_loc_url = gc.generate_signed_url(output_loc, http_method='PUT')
+    final_clip.write_videofile('/tmp/' + output_loc)
+    gc.upload_blob_name('/tmp/' + output_loc, output_loc)
+    return output_loc
