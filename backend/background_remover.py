@@ -9,6 +9,7 @@ from torchvision import models
 class BackgroundRemover:
 
     SCALED_SIZE = 256
+    SCALED_FPS = 25
     IMAGENET_MEAN = [0.485, 0.456, 0.406]
     IMAGENET_STD = [0.229, 0.224, 0.225]
 
@@ -25,6 +26,7 @@ class BackgroundRemover:
             width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
             height = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
             fps = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            length = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
         output_name = f"{output_name}.mp4"
         fourcc = cv2.VideoWriter_fourcc(*'X264')
@@ -35,24 +37,39 @@ class BackgroundRemover:
             print(f"\t width: {width}")
             print(f"\t height: {height}")
             print(f"\t fps: {fps}")
+            print(f"\t total frames: {length}")
             print(f"\t output dim: {output_dim}")
+        
+        fps_ratio = None
+        if fps > self.SCALED_FPS:
+            fps_ratio = float(fps) / self.SCALED_FPS
+            fps = self.SCALED_FPS
         out = cv2.VideoWriter(output_name, fourcc, fps, output_dim)
 
-        iter = 1
-        i = 0
+        dropped_frames = 0
+        frame_index = 0
         while self.cap.isOpened():
             ret, frame = self.cap.read()
 
             if ret:
-                i += 1
-                if i % iter == 0:
+                if fps_ratio is not None and frame_index // fps_ratio == dropped_frames:
                     image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-                    out.write(cv2.cvtColor(self._segment(image, dev=device, show_imgs=verbose), cv2.COLOR_RGB2BGR))
+                    out.write(cv2.cvtColor(self._segment(image, dev=device, show_imgs=False), cv2.COLOR_RGB2BGR))
+                else:
+                    dropped_frames += 1
+
+                if frame_index and frame_index + 1 % self.SCALED_FPS == 0 and verbose:
+                    print(f"Completed processing {frame_index} frames")
+                frame_index += 1
             else:
                 break
 
         self.cap.release()
         out.release()
+
+        if verbose:
+            print(f"Completed processing {frame_index} frames")
+            print(f"Dropped {dropped_frames} frames")
         return output_name
 
     def _calculate_output_dim(self, width, height):
