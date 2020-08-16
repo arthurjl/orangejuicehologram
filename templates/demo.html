@@ -17,6 +17,16 @@
                <a href = "#" class="learnMoreButton"><button>Upload Video</button></a>
                <a href = "#" class="learnMoreButton"><button>Download Video</button></a>
             </div>
+
+            <form action="/demo" method="POST" enctype="multipart/form-data">
+                <label>Select Video</label>
+                <div class="custom-file">
+                  <input oninput="filesize(this)" type="file" name="video" id="video">
+                  <label for="video">Select video...</label>
+                </div>
+
+                <button type="submit">Upload image</button>
+            </form>
         </div>
     </div>
 </div>
