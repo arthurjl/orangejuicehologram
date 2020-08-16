@@ -3,6 +3,8 @@ from flask import Flask, render_template, url_for, request, redirect
 import os # For file saving
 from werkzeug.utils import secure_filename
 
+from google_cloud import upload_blob
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -14,7 +16,7 @@ def index():
 
 # Place to save our files to
 # (Should put in config file later maybe)
-app.config["FILE_UPLOADS"] = "./static/uploads"
+app.config["FILE_UPLOADS"] = "uploads/"
 # Change later
 app.config["ALLOWED_FILE_UPLOAD_EXTENSIONS"] = ["PNG", "JPG", "PDF", "JPEG", "MP4"]
 app.config["MAX_FILESIZE"] = 5 * 1024 * 1024
@@ -31,9 +33,9 @@ def upload():
                 print("filename is not safe / allowed")
                 return redirect(request.url)
             filename = secure_filename(video.filename)
-
-            video.save(os.path.join(app.config["FILE_UPLOADS"], filename))
-            print(video)
+            upload_location = os.path.join(app.config["FILE_UPLOADS"], filename)
+            print(f"Uploading file to {upload_location}")
+            upload_blob(video, upload_location)
             return redirect(request.url)
 
     # Else, GET request
