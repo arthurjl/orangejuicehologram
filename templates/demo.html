@@ -31,4 +31,12 @@
         </div>
     </div>
 </div>
+{% if video_loc is defined %}
+{{ video_loc }}
+<div class="demoHolder">
+    <video class="demoVideo" muted controls>
+        <source src = "/{{ video_loc }}" type = "video/mp4">
+    </video>
+</div>
+{% endif %}
 {% endblock %}

@@ -18,12 +18,12 @@ def convertVideo(filepath, percentage):
     # Calculate clip positions
     clip1_pos = ((width / 2) - (clip_width / 2), 0)
     clip2_pos = (0, (width / 2) - (clip_width / 2))
-    clip3_pos = ((width / 2) - (clip_width / 2), width - clip_height) 
+    clip3_pos = ((width / 2) - (clip_width / 2), width - clip_height)
     clip4_pos = (width - clip_height, (width / 2) - (clip_width / 2))
 
     # Produce composition of clips
-    final_clip = CompositeVideoClip([clip1.set_position(clip1_pos), 
-                                    clip2.set_position(clip2_pos), 
-                                    clip3.set_position(clip3_pos), 
+    final_clip = CompositeVideoClip([clip1.set_position(clip1_pos),
+                                    clip2.set_position(clip2_pos),
+                                    clip3.set_position(clip3_pos),
                                     clip4.set_position(clip4_pos)], size=(width, width))
-    final_clip.write_videofile(filepath.replace(".", "_converted."))
+    final_clip.write_videofile(filepath)
