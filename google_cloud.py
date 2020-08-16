@@ -134,4 +134,4 @@ if __name__ == "__main__":
   # upload_blob(open('random.txt'), 'uploads/random.txt')
   x = generate_signed_url('uploads/video-1597551723.mp4')
   print(x)
-  convertVideo(x, 500)
+  # convertVideo(x, 500)
