@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<script>
+   
+       /* $("a[href='#content']").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#contentAbout").offset().top
+            }, 1000);
+        });*/
+    function scrollToAnchor(anchor) {
+	// cgi_escape causes problems with multiple word tags which are combined with '+' symbols
+	// the following line resolves this by escaping + symbols
+	anchor = anchor.replace('+', '\\+');
+    var scrollTo = $('#' + anchor);
+    $('html,body').animate({scrollTop: scrollTo.offset().top},'slow');
+}
+   
+</script>
+<div class = "landingGradient">
+    <div class = "landing">
+        <div class = "titleHolder">
+            <div class = "textHolder">
+                <h1>About</h1>
+                <h1 class = "hologram">How It Works</h1>
+            </div>
+        </div>
+        <div class="container">
+          <a href="#contentAbout" onclick="scrollToAnchor('contentAbout')">
+            <div id = "arrow" class="arrow"></div>
+          </a>
+        </div>
+        
+        <!-- add arrow if possible -->
+    </div>
+</div>
+<div id = "contentAbout" class = "aboutSection">
+    <div class = "textPart">
+        <h2>INSERT TITLE</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class = "vidHolder">
+        <video muted controls>
+            <!--<source src = "LandingVideoEdited1.mp4" type = "video/mp4">-->
+            <source src = "/static/videos/testvideo.mp4" type = "video/mp4">
+        </video>
+    </div>
+</div>
+{% endblock %}
+
+

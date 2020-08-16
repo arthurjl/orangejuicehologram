@@ -1,0 +1,79 @@
+video {
+    width: 60%;
+    background-color: rgba(225,225,225,0);
+    /*padding: 10px;
+    border: 2px solid #eb4507;*/
+}
+
+.hologram {
+    font-size: 30px !important;
+    -webkit-text-stroke-width: 1px !important;
+}
+
+.textHolder h1 {
+    line-height: 60px !important;
+}
+
+.landingGradient {
+    background-image: url("/static/images/aboutbackground.jpg");
+}
+
+.textPart {
+    color: white;
+    padding: 8% 20% 8% 20%;
+}
+
+.textPart h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 45px;
+}
+
+.textPart p {
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.vidHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8%;
+}
+
+#aboutPage {
+    color: #eb4507;
+}
+
+/* css for arrow */
+
+.arrow {
+  box-sizing: border-box;
+  height: 4vw;
+  width: 4vw;
+  border-style: solid;
+  border-color: white;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(45deg);
+  transition: border-width 200ms ease-in-out;
+}
+
+.arrow:hover {
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+}
+
+.container {
+  position: absolute;
+  top: 85vh;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
